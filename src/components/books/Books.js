@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Button from '../UI/Button';
+import Form from '../UI/Form';
 
 const Books = () => {
   const [books] = useState([]);
@@ -8,15 +10,9 @@ const Books = () => {
       {books.map((book) => (
         <div key={book.id}>{book}</div>
       ))}
-      <button type="button">Remove</button>
+      <Button content="Remove" />
 
-      <form>
-        <label htmlFor="add-book">
-          ADD NEW BOOK
-          <input type="text" id="add-book" />
-        </label>
-        <button type="button">ADD BOOK</button>
-      </form>
+      <Form id="add-input" labelContent="ADD NEW BOOK" />
     </div>
   );
 };
