@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 import { addBook } from '../../redux/books/books';
-import './Form.css';
 
 const Form = () => {
   const dispatch = useDispatch();
