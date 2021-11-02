@@ -12,7 +12,7 @@ const Books = () => {
       <button>Remove</button>
 
       <form>
-        <label for="add-book">ADD NEW BOOK</label>
+        <label htmlFor="add-book">ADD NEW BOOK</label>
         <input id="add-book"/>
         <button>ADD BOOK</button>
       </form>
