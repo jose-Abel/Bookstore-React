@@ -1,32 +1,32 @@
-/* eslint-disable no-unused-labels */
+const ADD_BOOK = 'bookStore/books/ADD_BOOK';
+const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 
-/* eslint-disable no-restricted-syntax */
+const initialState = [];
 
-/* eslint-disable no-labels */
+export const addBook = (payload) => ({
+  type: ADD_BOOK,
+  payload,
+});
 
-/* eslint-disable no-unused-expressions */
+export const removeBook = (payload) => ({
+  type: REMOVE_BOOK,
+  payload,
+});
 
-// Books Constants
-const ADD = 'bookstore/books/add';
-
-// Books Reducer
-const booksReducerDefaultState = [];
-
-export default (state = booksReducerDefaultState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
-    case ADD:
+    case ADD_BOOK:
       return [
-        ...state.books,
-        action.book,
+        ...state.filter((book) => book.id !== action.payload.id),
+        action.payload,
+      ];
+
+    case REMOVE_BOOK:
+      return [
+        ...state.filter((book) => book.id !== action.payload),
       ];
 
     default:
       return state;
   }
-};
-
-// Books Add Action
-export const add = (book) => {
-  type: ADD;
-  book;
 };

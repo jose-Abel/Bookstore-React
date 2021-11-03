@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import Button from '../UI/Button';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import Book from './Book';
 import Form from '../UI/Form';
 
 const Books = () => {
-  const [books] = useState([]);
+  const books = useSelector((state) => state.booksReducer);
 
   return (
     <div>
       {books.map((book) => (
-        <div key={book.id}>{book}</div>
+        <Book key={book.id} book={book} />
       ))}
-      <Button content="Remove" />
 
       <Form id="add-input" labelContent="ADD NEW BOOK" />
     </div>
