@@ -18,7 +18,22 @@ export const removeBook = (payload) => ({
 });
 
 export const getBooks = () => (dispatch) => axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/ZtfyD3dYJgRiEVKbxPqy/books').then(
-  (books) => dispatch({ type: GET_BOOKS_SUCCESS, books }),
+  (books) => {
+    const booksArr = Object.entries(books.data);
+
+    const newBooksArr = [];
+
+    for (let i = 0; i < booksArr.length; i += 1) {
+      const newBook = {
+        id: booksArr[i][0],
+        title: booksArr[i][1][0].title,
+        category: booksArr[i][1][0].category,
+      };
+
+      newBooksArr.push(newBook);
+    }
+    dispatch({ type: GET_BOOKS_SUCCESS, payload: newBooksArr });
+  },
   (err) => dispatch({ type: GET_BOOKS_FAILURE, err }),
 );
 
@@ -44,7 +59,10 @@ export default (state = initialState, action) => {
         ...state.filter((book) => book.id !== action.payload),
       ];
     case GET_BOOKS_SUCCESS:
-      return action.books;
+      console.log(action.payload);
+      return [
+        ...action.payload,
+      ];
 
     default:
       return state;
