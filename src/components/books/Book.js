@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { removeBook } from '../../redux/books/books';
 
 const Book = ({ book }) => {
-  const { id, title, author } = book;
+  const { id, title, category } = book;
   const dispatch = useDispatch();
 
   const handleRemoveBook = () => {
@@ -19,8 +19,8 @@ const Book = ({ book }) => {
       </div>
 
       <div>
-        Author:
-        {author}
+        Category:
+        {category}
       </div>
 
       <button onClick={handleRemoveBook} type="button">Remove</button>
@@ -32,7 +32,7 @@ Book.defaultProps = {
   book: {
     id: '',
     title: '',
-    author: '',
+    category: '',
   },
 };
 
@@ -40,7 +40,7 @@ Book.propTypes = {
   book: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    author: PropTypes.string,
+    category: PropTypes.string,
   }),
 };
 

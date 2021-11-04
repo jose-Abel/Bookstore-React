@@ -26,6 +26,7 @@ const Form = () => {
       author: bookAuthor,
     };
     dispatch(addBook(newBook));
+
     setBookTitle('');
     setBookAuthor('');
   };
