@@ -34,8 +34,7 @@ export const addBook = (book) => (dispatch) => axios.post('https://us-central1-b
   title: book.title,
   category: book.category,
 }).then(
-  (data) => {
-    console.log(data);
+  () => {
     dispatch({ type: ADD_BOOK_SUCCESS, payload: book });
   },
   (err) => dispatch({ type: ADD_BOOK_FAILURE, err }),
