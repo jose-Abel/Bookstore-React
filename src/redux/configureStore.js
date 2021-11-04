@@ -1,6 +1,5 @@
-/* eslint-disable no-underscore-dangle */
 import {
-  createStore, combineReducers, applyMiddleware, compose,
+  createStore, combineReducers, applyMiddleware,
 } from 'redux';
 import thunk from 'redux-thunk';
 import booksReducer from './books/books';
@@ -11,10 +10,7 @@ const reducer = combineReducers({
 
 const store = createStore(
   reducer,
-  compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  ),
+  applyMiddleware(thunk),
 );
 
 export default store;
