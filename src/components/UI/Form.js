@@ -6,16 +6,16 @@ import { addBook } from '../../redux/books/books';
 const Form = () => {
   const dispatch = useDispatch();
   const [bookTitle, setBookTitle] = useState('');
-  const [bookAuthor, setBookAuthor] = useState('');
+  const [bookCategory, setBookCategory] = useState('');
 
   const bookTitleHandle = (e) => {
     const title = e.target.value;
     setBookTitle(title);
   };
 
-  const bookAuthorHandle = (e) => {
+  const bookCategoryHandle = (e) => {
     const author = e.target.value;
-    setBookAuthor(author);
+    setBookCategory(author);
   };
 
   const submitBookToStore = (e) => {
@@ -23,12 +23,12 @@ const Form = () => {
     const newBook = {
       id: uuid(),
       title: bookTitle,
-      author: bookAuthor,
+      category: bookCategory,
     };
     dispatch(addBook(newBook));
 
     setBookTitle('');
-    setBookAuthor('');
+    setBookCategory('');
   };
 
   return (
@@ -41,9 +41,9 @@ const Form = () => {
           </label>
         </div>
         <div>
-          <label htmlFor="author">
-            Book Author
-            <input type="text" id="author" value={bookAuthor} onChange={bookAuthorHandle} />
+          <label htmlFor="category">
+            Book Category
+            <input type="text" id="category" value={bookCategory} onChange={bookCategoryHandle} />
           </label>
         </div>
       </div>

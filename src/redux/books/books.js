@@ -1,21 +1,13 @@
 import axios from 'axios';
 
-const ADD_BOOK = 'bookStore/books/ADD_BOOK';
-const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
-const GET_BOOKS_SUCCESS = 'GET_BOOKS_SUCCESS';
-const GET_BOOKS_FAILURE = 'GET_BOOKS_FAILURE';
+const GET_BOOKS_SUCCESS = 'bookStore/books/GET_BOOKS_SUCCESS';
+const GET_BOOKS_FAILURE = 'bookStore/books/GET_BOOKS_FAILURE';
+const ADD_BOOK_SUCCESS = 'bookStore/books/ADD_BOOK_SUCCESS';
+const ADD_BOOK_FAILURE = 'bookStore/books/ADD_BOOK_FAILURE';
+const REMOVE_BOOK_SUCCESS = 'bookStore/books/REMOVE_BOOK_SUCCESS';
+const REMOVE_BOOK_FAILURE = 'bookStore/books/REMOVE_BOOK_FAILURE';
 
 const initialState = [];
-
-export const addBook = (payload) => ({
-  type: ADD_BOOK,
-  payload,
-});
-
-export const removeBook = (payload) => ({
-  type: REMOVE_BOOK,
-  payload,
-});
 
 export const getBooks = () => (dispatch) => axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/ZtfyD3dYJgRiEVKbxPqy/books').then(
   (books) => {
@@ -37,31 +29,41 @@ export const getBooks = () => (dispatch) => axios.get('https://us-central1-books
   (err) => dispatch({ type: GET_BOOKS_FAILURE, err }),
 );
 
-// axios({
-//   method: 'post',
-//   url: '/login',
-//   data: {
-//     firstName: 'Finn',
-//     lastName: 'Williams'
-//   }
-// });
+export const addBook = (book) => (dispatch) => axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/ZtfyD3dYJgRiEVKbxPqy/books', {
+  item_id: book.id,
+  title: book.title,
+  category: book.category,
+}).then(
+  (data) => {
+    console.log(data);
+    dispatch({ type: ADD_BOOK_SUCCESS, payload: book });
+  },
+  (err) => dispatch({ type: ADD_BOOK_FAILURE, err }),
+);
+
+export const removeBook = (id) => (dispatch) => axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/ZtfyD3dYJgRiEVKbxPqy/books/${id}`).then(
+  () => {
+    dispatch({ type: REMOVE_BOOK_SUCCESS, payload: id });
+  },
+  (err) => dispatch({ type: REMOVE_BOOK_FAILURE, err }),
+);
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ADD_BOOK:
+    case GET_BOOKS_SUCCESS:
+      return [
+        ...action.payload,
+      ];
+
+    case ADD_BOOK_SUCCESS:
       return [
         ...state.filter((book) => book.id !== action.payload.id),
         action.payload,
       ];
 
-    case REMOVE_BOOK:
+    case REMOVE_BOOK_SUCCESS:
       return [
         ...state.filter((book) => book.id !== action.payload),
-      ];
-    case GET_BOOKS_SUCCESS:
-      console.log(action.payload);
-      return [
-        ...action.payload,
       ];
 
     default:
