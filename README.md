@@ -27,10 +27,10 @@ That's all, you are ready to go!
 
 ### Install
 
-Run the following command to have all npm packages dependencies installed:
+Run the following command to have all yarn packages dependencies installed:
 
 ```
-    npm install
+    yarn install
 ```
 
 ### Usage
