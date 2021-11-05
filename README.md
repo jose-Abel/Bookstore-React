@@ -2,10 +2,23 @@
 
 # Bookstore - Jose Abel Ramirez Frontany
 
+The Bookstore is an MVP version of a website build with React and Redux, that consist in the following:
+
+- Display a list of books.
+- Allows to add a book.
+- Allows to remove a selected book.
+
+It has two subpages: "Books" and "Categories." However, it was only required to implement the "Books" part. The "Categories" page is empty for this MVP. The Bookstore MVP is connected with Axios to the API https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi.
+
+![screenshot](./app_screenshot.png)
+
 ## Built With
 
 - React
 - React-dom
+- Redux
+- Thunk
+- Axios
 - Webpack
 - Babel
 - HTML
@@ -40,12 +53,6 @@ To run the "react-scripts start" script, type the following command:
 ```
     npm start
 ```
-
-### Live Demo Server
-
-<!-- []() -->
-
-### Tests
 
 ### Linters
 

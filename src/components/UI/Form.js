@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 import { addBook } from '../../redux/books/books';
+import classes from './Form.module.css';
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -32,25 +33,19 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={submitBookToStore}>
-      <div>
-        <div>
-          <label htmlFor="title">
-            Book Title
-            <input type="text" id="title" value={bookTitle} onChange={bookTitleHandle} />
-          </label>
+    <div className={classes.formSection}>
+      <div className={classes.line} />
+      <form onSubmit={submitBookToStore}>
+        <div className={classes.formContainer}>
+          <h2 className={classes.addNewBook}>ADD NEW BOOK</h2>
+          <div className={classes.inputsContainer}>
+            <input className={classes.inputTitle} type="text" id="title" value={bookTitle} onChange={bookTitleHandle} placeholder="Book Title" />
+            <input className={classes.inputCategory} type="text" id="category" value={bookCategory} onChange={bookCategoryHandle} placeholder="Book Category" />
+            <button className={classes.formButton} type="submit">ADD BOOK</button>
+          </div>
         </div>
-        <div>
-          <label htmlFor="category">
-            Book Category
-            <input type="text" id="category" value={bookCategory} onChange={bookCategoryHandle} />
-          </label>
-        </div>
-      </div>
-      <div>
-        <button type="submit">Submit</button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 

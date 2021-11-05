@@ -1,0 +1,41 @@
+.header {
+  color: #0290ff;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  background-color: #fff;
+  border: 2px solid #e8e8e8;
+}
+
+.headerContainer {
+  display: flex;
+}
+
+.headerTitle {
+  margin-left: 2rem;
+}
+
+.listContainer {
+  display: flex;
+  list-style: none;
+  align-self: end;
+}
+
+.listItem {
+  margin: 0.6rem 3rem 0 0;
+  font-size: 1.5rem;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #1212125b;
+}
+
+i {
+  margin: 2rem;
+}
+
+.is-active {
+  color: orange;
+  font-weight: bolder;
+}
