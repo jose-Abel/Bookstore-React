@@ -13,7 +13,7 @@
 }
 
 .addNewBook {
-  color: #888888;
+  color: #888;
 }
 
 .inputsContainer {
@@ -33,12 +33,12 @@
 
 .inputTitle::placeholder {
   padding-left: 2rem;
-  color: #888888;
+  color: #888;
 }
 
 .inputTitle:focus {
   padding-left: 2rem;
-  color: #888888;
+  color: #888;
   outline: none;
 }
 
@@ -54,12 +54,12 @@
 
 .inputCategory::placeholder {
   padding-left: 2rem;
-  color: #888888;
+  color: #888;
 }
 
 .inputCategory:focus {
   padding-left: 2rem;
-  color: #888888;
+  color: #888;
   outline: none;
 }
 

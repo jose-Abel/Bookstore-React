@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: "Montserrat-Bold";
+  font-family: "Montserrat-Bold", "Courier New", monospace;
   background-color: #fafafa;
 }
 
@@ -9,6 +9,11 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family:
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Courier New",
     monospace;
 }
