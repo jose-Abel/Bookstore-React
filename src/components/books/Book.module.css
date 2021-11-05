@@ -1,9 +1,9 @@
 .card {
-  margin: 2rem 5rem 0 5rem;
+  margin: 2rem 2rem 0 5rem;
   background-color: #fff;
   border: 2px solid #e8e8e8;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border-radius: 0.5rem;
   padding: 1.5rem;
 }
@@ -80,6 +80,7 @@
 }
 
 .chapter {
+  color: #121212;
 }
 
 .updateProgress {
