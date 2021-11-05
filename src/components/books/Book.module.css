@@ -1,0 +1,16 @@
+.card {
+  margin: 2rem 5rem 0 5rem;
+  background-color: #fff;
+  border: 2px solid #e8e8e8;
+  display: flex;
+  justify-content: space-around;
+}
+
+.loader {
+  border: 10px solid #f3f3f3; /* Light grey */
+  border-right: 10px solid #3498db; /* Blue */
+  border-bottom: 10px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 8rem;
+  height: 8rem;
+}

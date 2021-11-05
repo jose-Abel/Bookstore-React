@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../../redux/books/books';
+import classes from './Book.module.css';
 
 const Book = ({ book }) => {
   const { id, title, category } = book;
@@ -12,18 +13,25 @@ const Book = ({ book }) => {
   };
 
   return (
-    <div>
+    <div className={classes.card}>
+
       <div>
-        Title:
-        {title}
+        <p>
+          {category}
+        </p>
+
+        <h2>
+          {title}
+        </h2>
+
+        <button onClick={handleRemoveBook} type="button">Remove</button>
       </div>
 
       <div>
-        Category:
-        {category}
+
+        <div className={classes.loader} />
       </div>
 
-      <button onClick={handleRemoveBook} type="button">Remove</button>
     </div>
   );
 };
