@@ -16,20 +16,32 @@ const Book = ({ book }) => {
     <div className={classes.card}>
 
       <div>
-        <p>
-          {category}
+        <p className={classes.bookInfoContainer}>
+          <span className={classes.bookCategory}>{category}</span>
+          <span className={classes.bookTitle}>{title}</span>
+          <span className={classes.bookAuthor}>F. Scott Fitzgerald</span>
         </p>
 
-        <h2>
-          {title}
-        </h2>
-
-        <button onClick={handleRemoveBook} type="button">Remove</button>
+        <p className={classes.buttonsContainer}>
+          <button className={classes.btn} type="button">Comment</button>
+          <button className={classes.btn} onClick={handleRemoveBook} type="button">Remove</button>
+          <button className={classes.btn} type="button">Edit</button>
+        </p>
       </div>
 
-      <div>
+      <div className={classes.progressContainer}>
 
         <div className={classes.loader} />
+        <p className={classes.percentageContainer}>
+          <span className={classes.percentage}>64%</span>
+          <span className={classes.completed}>Completed</span>
+        </p>
+      </div>
+
+      <div className={classes.chapterContainer}>
+        <span className={classes.currentChapter}>Current Chapter</span>
+        <span className={classes.chaper}>Chapter 17</span>
+        <button className={classes.updateProgress} type="button">UPDATE PROGRESS</button>
       </div>
 
     </div>
